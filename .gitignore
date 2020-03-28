@@ -87,8 +87,9 @@ lint/tmp/
 
 
 ###Ignore react stuff
-node_modules/**/*
-.expo/*
+Saferoute/node_modules/**/*
+Saferoute/.expo/*
+Saferoute/.expo-shared/*
 npm-debug.*
 *.jks
 *.p8
