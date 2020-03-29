@@ -16,9 +16,11 @@
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-render-html": "^4.2.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.4.0",
     "react-native-web": "~0.11.7",
+    "react-native-webview": "^9.0.2",
     "react-navigation": "^4.3.4",
     "react-navigation-stack": "^2.3.8"
   },
