@@ -62,35 +62,42 @@ class Input extends Component {
 
   fetchAndNavigate(){
     this.onFetchLoginRecords();
-    this.props.navigation.navigate('Map', { item: this.state });
   }
 
   onFetchLoginRecords() {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    //var raw = JSON.stringify({"lat":"41.785906","long":"-87.644919","destination":"59th Street & Princeton","mode_of_transit":"walk"});
+    var raw = JSON.stringify({
+      lat: this.state.latitude,
+      long: this.state.longitude,
+      destination: this.state.destination,
+      mode_of_transit: this.state.mode_of_transit});
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
     try {
       fetch(
-        "https://hoohacks-saferoute.appspot.com/", {
-          method: "POST",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            lat: this.state.latitude,
-            long: this.state.longitude,
-            destination: this.state.destination,
-            mode_of_transit: this.state.mode_of_transit,
-          })
-        })
+        "https://hoohacks-saferoute.appspot.com/", requestOptions)
         .then(response => response.json())
         .then((responseJson) => {
           this.setState({
             loading: false,
             dataSource: responseJson,
-            sessionID: responseJson.sessionID
+            sessionID: responseJson.sessionId
           })
         });
-        if (this.state.dataSource.status >= 200 && this.state.dataSource.status < 300) {
+        if (this.state.sessionID != 0) {
           alert("Data sent successfully!!!");
+          this.props.navigation.navigate('Map', { item: this.state });
+        }
+        else{
+          alert("Destination too far away. Please enter destination with 200 miles of current location.");
         }
     } catch (errors) {
 
