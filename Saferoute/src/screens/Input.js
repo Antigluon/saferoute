@@ -14,6 +14,9 @@ class Input extends Component {
       longitude: "",
       destination: "",
       mode_of_transit: "",
+      loading: true,
+      sessionID: '',
+      dataSource: []
     };
   }
   render(){
@@ -51,10 +54,48 @@ class Input extends Component {
         <Button
           style={styles.buttonText}
           title="Submit"
-          onPress={() => navigation.navigate('Map', { item: this.state })}
+          onPress={() => this.fetchAndNavigate()}
         />
       </View>
     )
+  }
+
+  fetchAndNavigate(){
+    this.onFetchLoginRecords();
+    this.props.navigation.navigate('Map', { item: this.state });
+  }
+
+  onFetchLoginRecords() {
+    try {
+      fetch(
+        "https://hoohacks-saferoute.appspot.com/", {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            lat: this.state.latitude,
+            long: this.state.longitude,
+            destination: this.state.destination,
+            mode_of_transit: this.state.mode_of_transit,
+          })
+        })
+        .then(response => response.json())
+        .then((responseJson) => {
+          this.setState({
+            loading: false,
+            dataSource: responseJson,
+            sessionID: responseJson.sessionID
+          })
+        });
+        if (this.state.dataSource.status >= 200 && this.state.dataSource.status < 300) {
+          alert("Data sent successfully!!!");
+        }
+    } catch (errors) {
+
+      alert(errors);
+    }
   }
 }
 

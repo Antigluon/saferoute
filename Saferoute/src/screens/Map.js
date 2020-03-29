@@ -2,14 +2,17 @@ import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 function Map(props) {
-  const { navigation } = props
+  const { route, navigation } = props
+  const { item } = route.params
+  const { latitude, longitude, destination, mode_of_transit, loading, sessionID, dataSource} = route.params
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Map</Text>
+      <Text style={styles.cardText}>sessionID {sessionID}</Text>
       <TouchableOpacity
         style={styles.buttonContainer}
         onPress={() => navigation.popToTop()}>
-        <Text style={styles.buttonText}>Home</Text>
+        <Text style={styles.buttonText}>Home {}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttonContainer}
