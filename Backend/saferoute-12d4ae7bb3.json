@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hoohacks-saferoute",
+  "private_key_id": "12d4ae7bb3c30cc0fb420eecb1929bf3a456e122",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3j+McR3oIwz4Z\nnZiZbOMmxxTBGjEOEE9Uxjw3n/VrNZJm9djiSVpjDYKpceLMZjsbKroSzJBR9/zs\nqbDvyO1s+f1UPBViglimUXh5znVvwYx7Pp+6piTHxWBOXIyOE5FE55pXzRooI7F+\nZeYVbfKp1UJtyGwlHXkAZWm8D+R19fJ/RtSLUi3I3t6WS7Jl6EneSRM5JxaAkAmb\nIMQ2FWLAiVWIIdfyY3sP9uRoL9PD9XFBegiWZG5ATg51YdZh+QCZdmcmbXGAEHg6\nWOVTT4Ftxh2UVZuofvqVRrahv6275/OCY5MskUXdac93S9lmLx0jjgV3SxIGkAKB\n9JUTyL35AgMBAAECggEAPhIQuRJOaMIksKLC5DaWxRkSoo2Jwviu6rqxyBl18o/F\n9rzxXutw/gemhEe3amizWedjzlGQB7e0tg5Xf23RI0WRbTd3/7yV33+zHnU67tRi\n/ZXai1H9I/RRMY5IFQ7203cBkOkRDDutnFE2sU5hfR5Y/SiFsTM7JHAmhepV1bEG\ntOji/gFTbVXrt7+F80xWi4rm/eqAA6ULuVVUuKM/5C1JyR4l+gFEkUZD/yUU4YKg\nxjQvO/KHZADKtpJOal90Ko+qUzEYZCuZsKzpcIupN0oJoczKFiy12WrnzI67jmcw\nSZC/nFjsMtyebPt8UwvQmENBZkmP/zaIRcouattjtQKBgQDwGTn4Mcw4WN6+Mt3E\nRGOOt2vD+oI+U4qPLJ8IXyWZ/IVLXwM7Mv7WGDkdlqPENhsdqGLRQ3WmQ1/EiOAR\n3XP7LrQoRqIZfNiqzReMHRhtWbdLvtYeUz2KV618V1MAxM/a2TRFlaIpS34tkkUI\nlX+q3xFvAkHvKc8isGL5ucPWTwKBgQDDuBuIXoKOuPscxsisW13fXkAVQbMQxzPy\nbXpf5iOiX8Fi1twbex541WBmbOUo4WPHR6mPpc7q2GPpqIYxMHtJzbycEH3wmPnX\nDszzckuHJYtfUpZ9lmv7yQJBH8HqTcgvM4pjHv8veKWr1XSueh1GEcC2dgSduul5\nLUvsgLVdNwKBgQCEWnOhRNo96YeIM4QacFStVKE8XHi1oNnNyRw1wjV5KEHWZZ7j\nYF4oaRv7GpJWVDkoZS1sDBLrv1Iohgd28avAuGMpnJ45DKBnrz0eyN8xUHaBc8aW\n2u4et+xzkbO4xcWK75coEK9esjXxKyOQ8tB4whTbK9Rq4ZJEnhVBckzpcwKBgA0X\no7/bkqA5f5LNOV9OPVlT1LWXT4Mv0CnHaQhBPOD/xs/1z4OHGOK8Y1Z2sl2ptiL+\niDkzvkO3dfeLbm6b76NgP92wvLv7f7sDInKmkqbXvBsES0zbYx3UtHHmzfH+ggWm\nTPuUdz2VtH9qKAQD5zFovpt2CZkDh9qzTQDlGzzBAoGBAI0AapvnnqDrYB7q0BUR\nk/Nsgs7V6VRgsCD3YWGj8JFBbCmaKoMbSnLJprfGHWmAiE2c/Qqh3r8Wn48+JLE5\n7+PelUzze6WPOe0G3lyU29Ek/LNNmp+VQSzS0TI2ee9Z0BLzo22HkJ6UzuDkE9hQ\nDEehF55WSzkIIDHIUyspaZF4\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-tojkt@hoohacks-saferoute.iam.gserviceaccount.com",
+  "client_id": "102452490901213528896",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-tojkt%40hoohacks-saferoute.iam.gserviceaccount.com"
+}
