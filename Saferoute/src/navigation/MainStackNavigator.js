@@ -3,8 +3,8 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import Home from '../screens/Home'
-import Detail from '../screens/Detail'
-import Settings from '../screens/Settings'
+import Input from '../screens/Input'
+import Map from '../screens/Map'
 
 const Stack = createStackNavigator()
 
@@ -31,16 +31,17 @@ function MainStackNavigator() {
           options={{ title: 'Home Screen' }}
         />
         <Stack.Screen
-          name='Detail'
-          component={Detail}
+          name='Input'
+          component={Input}
           options={({ route }) => ({
-            title: route.params.item.name
+            //title: route.params.item.name
+            title: 'Input'
           })}
         />
         <Stack.Screen
-          name='Settings'
-          component={Settings}
-          options={{ title: 'Settings' }}
+          name='Map'
+          component={Map}
+          options={{ title: 'Map' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

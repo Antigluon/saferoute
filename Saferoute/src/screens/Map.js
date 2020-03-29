@@ -1,15 +1,20 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
-function Settings(props) {
+function Map(props) {
   const { navigation } = props
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Settings</Text>
+      <Text style={styles.text}>Map</Text>
       <TouchableOpacity
         style={styles.buttonContainer}
         onPress={() => navigation.popToTop()}>
-        <Text style={styles.buttonText}>Go to Home</Text>
+        <Text style={styles.buttonText}>Home</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonContainer}
+        onPress={() => navigation.navigate('Input')}>
+        <Text style={styles.buttonText}>Input new data</Text>
       </TouchableOpacity>
     </View>
   )
@@ -39,4 +44,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Settings
+export default Map

@@ -1,66 +1,56 @@
-import React, { Component, useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
+import React, { Component } from 'react';
 
-import { LinearGradient } from 'expo-linear-gradient';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
-const character = {
-  name: 'Luke Skywalker',
-  home: 'Tatooine',
-  species: 'human'
+class Home extends Component {
+  constructor(props) {
+    //constructor to set default state
+    super(props);
+    this.state = {
+
+      latitude: "",
+      longitude: "",
+      destination: "",
+      mode_of_transit: "",
+    };
+  }
+  //const [ lat, long, destination, mode_of_transit, loading, dataSource, setText, onChangeText] = useState('');
+  //const { navigation } = props
+  render() {
+    const { navigation } = this.props
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Input Screen</Text>
+        <View style={styles.card}>
+          <Text style={styles.cardText}>Latitude</Text>
+          <Text style={styles.cardText}>Longitude</Text>
+          <Text style={styles.cardText}>Destination</Text>
+          <Text style={styles.cardText}>Mode of Transport</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => navigation.navigate('Input')}>
+          <Text style={styles.buttonText}>Input data</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
 }
+/*<View style={styles.container}>
+        <Text style={styles.text}>Input Screen</Text>
+        <View style={styles.card}>
+          <Text style={styles.cardText}>Latitude: {latitude}</Text>
+          <Text style={styles.cardText}>Longitude: {longitude}</Text>
+          <Text style={styles.cardText}>Destination: {destination}</Text>
+          <Text style={styles.cardText}>Mode of Transport: {mode_of_transit}</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => navigation.navigate('Map')}>
+          <Text style={styles.buttonText}>Go to Settings</Text>
+        </TouchableOpacity>
+      </View>*/
 
-const data = {
-  lat: "",
-  long: "",
-  destination: "",
-  mode_of_transit: "",
-  loading: true,
-  dataSource: [],
-}
-
-function Home(props) {
-  
-  const [ lat, long, destination, mode_of_transit, loading, dataSource, setText] = useState('');
-  const { navigation } = props
-  return (
-    <LinearGradient
-          colors={['#4c669f', '#3b5998', '#192f6a']}
-          style={{ flex: 1, alignItems: 'center' }, styles.container}>
-          <TextInput
-            
-            style={styles.textInput}
-            placeholder="Latitude"
-            returnKeyType="next"
-            onChangeText={text => setText(text)}
-          />
-          <TextInput
-            
-            style={styles.textInput}
-            placeholder="Longitude"
-            returnKeyType="next"
-            onChangeText={text => setText(text)}
-          />
-          <TextInput
-            
-            style={styles.textInput}
-            placeholder="Destination"
-            returnKeyType="next"
-            onChangeText={text => setText(text)}
-          />
-          <TextInput
-            
-            style={styles.textInput}
-            placeholder="Mode of Transit"
-            returnKeyType="done"
-            onChangeText={text => setText(text)}
-          />
-          <Button
-            title="Submit"
-            onPress={() => navigation.navigate('Detail', { item: character })}
-          />
-        </LinearGradient>
-  )
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -74,6 +64,20 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold'
   },
+  card: {
+    width: 350,
+    height: 120,
+    borderRadius: 10,
+    backgroundColor: '#101010',
+    margin: 10,
+    padding: 10,
+    alignItems: 'center'
+  },
+  cardText: {
+    fontSize: 18,
+    color: '#ffd700',
+    marginBottom: 5
+  },
   buttonContainer: {
     backgroundColor: '#222',
     borderRadius: 5,
@@ -85,5 +89,4 @@ const styles = StyleSheet.create({
     color: '#fff'
   }
 })
-
 export default Home
