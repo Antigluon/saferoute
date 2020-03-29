@@ -4,6 +4,6 @@ lxml==4.2.4
 pybase64
 six
 pyrebase
-requests==2.11.1
+requests==2.20.0
 requests-toolbelt==0.7.0
 twilio
