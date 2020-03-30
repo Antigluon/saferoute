@@ -11,9 +11,10 @@ function MainStackNavigator() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name='Home'
+          name='Saferoute - A Hoohacks 2020 Project'
           component={Home}
-          options={{ title: 'Home Screen' }}
+          options={{ title: 'Saferoute - A Hoohacks 2020 Project',
+         header: null}}
         />
         <Stack.Screen
           name='Detail'
