@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
+import { StyleSheet, View, Text, TextInput, Button, Linking} from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import ModalDropdown from 'react-native-modal-dropdown';
 
@@ -81,7 +81,7 @@ class Input extends Component {
             let sessionID = responseJson.sessionId
             if (sessionID != 0) {
               console.log(sessionID)
-              console.log("https://www.mapquestapi.com/staticmap/v5/map?key=QwD7l7Q2gwYrsOuErXCMPpt3BBfZGVGv&size=1920,1920@2x&session=" + sessionID)
+              Linking.openURL("https://www.mapquestapi.com/staticmap/v5/map?key=QwD7l7Q2gwYrsOuErXCMPpt3BBfZGVGv&size=1920,1920@2x&session=" + sessionID)
             }
             else{
               alert("Destination too far away or unable to generate safe route. Please enter destination with 200 miles of current location.");
