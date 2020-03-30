@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, Image} from 'react-native'
 
 class Home extends Component {
   constructor(props) {
@@ -16,10 +15,11 @@ class Home extends Component {
   //const [ lat, long, destination, mode_of_transit, loading, dataSource, setText, onChangeText] = useState('');
   //const { navigation } = props
   render() {
+    const logo = require("../../assets/icon.png")
     const { navigation } = this.props
     return (
       <View style={styles.container}>
-        
+        <Image source={logo}/>
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => navigation.navigate('Input')}>
