@@ -19,17 +19,11 @@ class Home extends Component {
     const { navigation } = this.props
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Input Screen</Text>
-        <View style={styles.card}>
-          <Text style={styles.cardText}>Latitude</Text>
-          <Text style={styles.cardText}>Longitude</Text>
-          <Text style={styles.cardText}>Destination</Text>
-          <Text style={styles.cardText}>Mode of Transport</Text>
-        </View>
+        
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => navigation.navigate('Input')}>
-          <Text style={styles.buttonText}>Input data</Text>
+          <Text style={styles.buttonText}>Start Navigating</Text>
         </TouchableOpacity>
       </View>
     )
@@ -41,29 +35,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ebebeb'
+    backgroundColor: '#fff'
   },
   text: {
     color: '#101010',
     fontSize: 24,
     fontWeight: 'bold'
   },
-  card: {
-    width: 350,
-    height: 120,
-    borderRadius: 10,
-    backgroundColor: '#101010',
-    margin: 10,
-    padding: 10,
-    alignItems: 'center'
-  },
-  cardText: {
-    fontSize: 18,
-    color: '#ffd700',
-    marginBottom: 5
-  },
   buttonContainer: {
-    backgroundColor: '#222',
+    backgroundColor: '#003264',
     borderRadius: 5,
     padding: 10,
     margin: 20

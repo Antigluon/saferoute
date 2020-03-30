@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
+import ModalDropdown from 'react-native-modal-dropdown';
 
 class Input extends Component {
   constructor(props) {
@@ -22,32 +23,22 @@ class Input extends Component {
      
     <View style={styles.container}>
         <TextInput
-          style={styles.text}
-          placeholder="Latitude"
-          returnKeyType="next"
-          onChangeText={latitude => this.setState({ latitude })}
-        />
-        <TextInput
 
           style={styles.text}
-          placeholder="Longitude"
-          returnKeyType="next"
-          onChangeText={longitude => this.setState({ longitude })}
-        />
-        <TextInput
-
-          style={styles.text}
-          placeholder="Destination"
+          placeholder="Enter Destination"
           returnKeyType="next"
           onChangeText={destination => this.setState({ destination })}
         />
-        <TextInput
 
-          style={styles.text}
-          placeholder="Mode of Transit"
-          returnKeyType="done"
-          onChangeText={mode_of_transit => this.setState({ mode_of_transit })}
+        <ModalDropdown 
+        defaultValue={'walk'}
+        textStyle	={styles.text}
+        dropdownTextHighlightStyle={styles.text}
+        dropdownTextStyle={styles.text}
+        options={['walk', 'drive', 'bike']}
+        onChangeText={mode_of_transit => this.setState({ mode_of_transit })}
         />
+
         <Button
           style={styles.buttonText}
           title="Submit"
@@ -64,10 +55,11 @@ class Input extends Component {
   onFetchLoginRecords() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
+    alert("Allow Saferoute to use your current location?")
+    //var raw = JSON.stringify({"lat":"41.785906","long":"-87.644919","destination":"59th Street & Princeton","mode_of_transit":"walk"});
     var raw = JSON.stringify({
-      lat: this.state.latitude,
-      long: this.state.longitude,
+      lat: "41.785906",
+      long: "-87.644919",
       destination: this.state.destination,
       mode_of_transit: this.state.mode_of_transit});
 
@@ -82,19 +74,17 @@ class Input extends Component {
         "https://hoohacks-saferoute.appspot.com/", requestOptions)
         .then(response => response.json())
         .then((responseJson) => {
-          this.setState({
-            loading: false,
-            dataSource: responseJson,
-            sessionID: responseJson.sessionId
-          })
+          setTimeout(function() {
+            let sessionID = responseJson.sessionId
+            if (sessionID != 0) {
+              console.log(sessionID)
+              console.log("https://www.mapquestapi.com/staticmap/v5/map?key=QwD7l7Q2gwYrsOuErXCMPpt3BBfZGVGv&size=1920,1920@2x&session=" + sessionID)
+            }
+            else{
+              alert("Destination too far away or unable to generate safe route. Please enter destination with 200 miles of current location.");
+            }
+          }, 500)
         });
-        if (this.state.sessionID != 0) {
-          alert("Data sent successfully!!!");
-          this.props.navigation.navigate('Map', { item: this.state });
-        }
-        else{
-          alert("Destination too far away. Please enter destination with 200 miles of current location.");
-        }
     } catch (errors) {
 
       alert(errors);
@@ -122,7 +112,9 @@ const styles = StyleSheet.create({
     margin: 20
   },
   buttonText: {
-    fontSize: 20,
+    paddingTop: 10,
+    fontSize: 50,
+    fontWeight: 'bold',
     color: '#fff'
   }
 })
