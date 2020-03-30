@@ -3,9 +3,6 @@ import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 
 class Input extends Component {
-  //const { route, navigation } = props
-  //const { item } = route.params
-  //const { latitude, longitude, destination, mode_of_transit } = item
   constructor(props) {
     //constructor to set default state
     super(props);
@@ -68,7 +65,6 @@ class Input extends Component {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    //var raw = JSON.stringify({"lat":"41.785906","long":"-87.644919","destination":"59th Street & Princeton","mode_of_transit":"walk"});
     var raw = JSON.stringify({
       lat: this.state.latitude,
       long: this.state.longitude,

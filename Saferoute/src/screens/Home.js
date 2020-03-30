@@ -7,7 +7,6 @@ class Home extends Component {
     //constructor to set default state
     super(props);
     this.state = {
-
       latitude: "",
       longitude: "",
       destination: "",
@@ -36,21 +35,6 @@ class Home extends Component {
     )
   }
 }
-/*<View style={styles.container}>
-        <Text style={styles.text}>Input Screen</Text>
-        <View style={styles.card}>
-          <Text style={styles.cardText}>Latitude: {latitude}</Text>
-          <Text style={styles.cardText}>Longitude: {longitude}</Text>
-          <Text style={styles.cardText}>Destination: {destination}</Text>
-          <Text style={styles.cardText}>Mode of Transport: {mode_of_transit}</Text>
-        </View>
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={() => navigation.navigate('Map')}>
-          <Text style={styles.buttonText}>Go to Settings</Text>
-        </TouchableOpacity>
-      </View>*/
-
 
 const styles = StyleSheet.create({
   container: {

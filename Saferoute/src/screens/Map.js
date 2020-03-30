@@ -1,36 +1,82 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { StyleSheet, ScrollView, Dimensions, View, Text, TouchableOpacity } from 'react-native'
 import {WebView} from 'react-native-webview'
+import DropdownAlert from 'react-native-dropdownalert';
 import HTML from 'react-native-render-html';
+
+//import DropdownAlert from 'react-native-dropdownalert';
 
 const myHtmlFile = require("../../assets/mapquest.html");
 
+//41.785906 -87.644919 59th Street & Princeton walk
+
 //const htmlContent = ``;
-function Map(props) {
-  const { route, navigation } = props
-  const { item } = route.params
-  const { latitude, longitude, destination, mode_of_transit, loading, sessionID, dataSource} = route.params
-  return (
-    <WebView source={myHtmlFile} />
-    //<ScrollView style={{ flex: 1 }}>
-    //  <HTML html={htmlContent} imagesMaxWidth={Dimensions.get('window').width} />
-    //</ScrollView>
-    /*<View style={styles.container}>
-      <Text style={styles.text}>Map</Text>
-      <Text style={styles.cardText}>sessionID {sessionID}</Text>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.popToTop()}>
-        <Text style={styles.buttonText}>Home {}</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Input')}>
-        <Text style={styles.buttonText}>Input new data</Text>
-      </TouchableOpacity>
-    </View>*/
-  )
+
+class Map extends Component {
+  constructor(props) {
+    //constructor to set default state
+    super(props);
+    const { route, navigation } = props
+    const { item } = route.params    
+    const { latitude, longitude, destination, mode_of_transit, loading, sessionID, dataSource} = route.params
+    this.state = {      
+      latitude: latitude,
+      longitude: longitude,
+      destination: destination,
+      mode_of_transit: mode_of_transit,
+      loading: loading,
+      sessionID: sessionID,
+      dataSource: [],
+      dangers:[],
+    };
+  }
+    
+    //timerID = setInterval(this.clock, 2000);
+  render (){
+    this.timerID;
+    const { navigation } = this.props
+    return (
+      <WebView source={myHtmlFile} />
+    )
+  }
+
+  clock = function() {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      phone: "5551234567",
+      username: "person",
+      guardian: "MrPerson",
+      destination: destination,
+      sessionId: sessionID,
+      lat: latitude,
+      long: longitude,
+      mode_of_transit: destination,
+    });
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+    fetch(
+      "https://hoohacks-saferoute.appspot.com/update", requestOptions)
+      .then(response => response.json())
+      .then((responseJson) => {
+        this.setState({
+          loading: false,
+          dataSource: responseJson,
+          sessionID: responseJson.sessionId,
+          dangers: responseJson.dangers
+        })
+      });
+
+      this.dropDownAlertRef.alertWithType('success', 'Success', 'Fetch data is complete.');
+  }
 }
+
 
 const styles = StyleSheet.create({
   container: {
