@@ -1,6 +1,6 @@
 flask==1.1.1
 uwsgi==2.0.18
-lxml==4.2.4
+lxml==4.6.3
 pybase64
 six
 pyrebase
